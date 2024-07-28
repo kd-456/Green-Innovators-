@@ -1,0 +1,104 @@
+/* Specific styles for the educational resources page
+
+.resources-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    max-width: 800px;
+}
+
+.resource-list li {
+    background-color: #fff3e0;
+    border: 1px solid #fb8c00;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.resource-list li a {
+    text-decoration: none;
+    color: #fb8c00;
+    font-size: 18px;
+}
+
+.resource-list li a:hover {
+    text-decoration: underline;
+} */
+
+/* Specific styles for the educational resources page */
+
+.resources-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    max-width: 800px;
+}
+
+.resource-list li {
+    background-color: #fff3e0;
+    border: 1px solid #fb8c00;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.resource-list li a {
+    text-decoration: none;
+    color: #fb8c00;
+    font-size: 18px;
+}
+
+.resource-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Panel styles for the main educational resources page */
+.panel-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.panel {
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #fb8c00;
+    border-radius: 5px;
+    background-color: #fff3e0;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.panel:hover {
+    background-color: #ffe0b2;
+    transform: scale(1.05);
+}
+
+.panel a {
+    text-decoration: none;
+    color: #fb8c00;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}

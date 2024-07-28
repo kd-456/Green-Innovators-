@@ -1,0 +1,47 @@
+/* Specific styles for the user profile page */
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-info {
+    background-color: #f3e5f5;
+    border: 1px solid #ab47bc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.profile-info h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-info p {
+    font-size: 18px;
+}
+
+.profile-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.profile-actions button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ab47bc;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-actions button:hover {
+    background-color: #9c27b0;
+}
