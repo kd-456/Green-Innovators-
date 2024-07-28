@@ -49,16 +49,16 @@
 }
 
 .resource-list li {
-    background-color: #fff3e0;
-    border: 1px solid #fb8c00;
-    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
     padding: 15px;
     margin-bottom: 10px;
 }
 
 .resource-list li a {
     text-decoration: none;
-    color: #fb8c00;
+    color: #171717;
     font-size: 18px;
 }
 
@@ -79,23 +79,23 @@
     width: 30%;
     padding: 20px;
     text-align: center;
-    border: 1px solid #fb8c00;
-    border-radius: 5px;
-    background-color: #fff3e0;
+    border: 1px solid #c3c3c3;
+    border-radius: 10px;
+    background-color: #ffffff;
     transition: background-color 0.3s, transform 0.3s;
     margin-bottom: 20px;
 }
 
 .panel:hover {
-    background-color: #ffe0b2;
+    background-color: #efecec;
     transform: scale(1.05);
 }
 
 .panel a {
     text-decoration: none;
-    color: #fb8c00;
+    color: #191919;
     font-size: 18px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .panel img {
