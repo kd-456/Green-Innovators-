@@ -1,0 +1,48 @@
+/* Apply background image to the whole page */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('../assets/img/1.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Ensure header styles are kept */
+
+
+/* Centering the main content */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     min-height: calc(100vh - 120px); 
+
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    /* margin-top: 10px;  */
+}
+
+/* Styles for the welcome text container */
+.welcome-container {
+    /* background: rgba(248, 247, 247, 0.6); */
+     /* Semi-transparent background for text */
+    color: white;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.welcome-container h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.welcome-container p {
+    font-size: 1.5em;
+    margin: 10px 0 0;
+}
+
+
