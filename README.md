@@ -7,7 +7,7 @@ Improve Crop Yields: Enhance crop health and productivity through precise irriga
 
 Increase Knowledge and Skills: Equip farmers with valuable knowledge and skills to adopt best practices and modern techniques.
 
-# Marginal Farmers Support
+# AgriSmart
 
 ## Overview
 
