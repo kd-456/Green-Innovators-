@@ -1,22 +1,42 @@
-/* Specific styles for the chatbot page */
-
+/* Container styling */
 #chatbot-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    padding-top: 100px;
+    /* background-color: rgba(198, 19, 19, 0.8); */
+
+    /* background: url('../assets/img/chatbot_pg.jpg') ; */
+    /* background-size: cover; */
 }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* color: white; */
+    background: url('../assets/img/chatbot_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    /* background-color: rgba(198, 19, 19, 0.8);  */
+}
+
+/* main{
+    background-color: rgba(75, 75, 75, 0.8);
+} */
+/* Chat window styling */
 #chat-window {
     width: 80%;
     max-width: 600px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; Keeps the chat window's background light */
+    background-color: rgba(223, 225, 222, 0.934);
 }
 
+/* Chat output styling */
 #chat-output {
     height: 300px;
     overflow-y: auto;
@@ -24,6 +44,7 @@
     padding: 10px;
 }
 
+/* Chat output message styling */
 #chat-output div {
     margin-bottom: 10px;
 }
@@ -36,6 +57,7 @@
     text-align: left;
 }
 
+/* User input styling */
 #user-input {
     width: calc(100% - 100px);
     padding: 10px;
@@ -44,6 +66,7 @@
     margin-right: 10px;
 }
 
+/* Send button styling */
 #send-btn {
     padding: 10px 20px;
     border: none;
