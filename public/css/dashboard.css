@@ -1,6 +1,6 @@
 /* Specific styles for the dashboard page */
 
-.dashboard-container {
+/* .dashboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,4 +31,84 @@
 
 .stat-card p {
     font-size: 18px;
+} */
+
+
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../assets/img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    height: 80px;
+    margin-right: 20px;
+}
+
+header h1 {
+    flex-grow: 1;
+    margin: 0;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 8px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+} */
