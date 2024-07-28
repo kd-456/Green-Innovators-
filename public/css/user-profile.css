@@ -1,6 +1,58 @@
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input and textarea styling */
+.form-group input,
+.form-group textarea {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
 /* Specific styles for the user profile page */
 
-.profile-container {
+/* .profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,4 +96,97 @@
 
 .profile-actions button:hover {
     background-color: #9c27b0;
+} */
+
+
+/* Specific styles for the user profile page */
+
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
 }
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+} */
+
+/* .profile-info {
+    background-color: #f3e5f5;
+    border: 1px solid #ab47bc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.profile-info h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-info p {
+    font-size: 18px;
+}
+
+.profile-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.profile-actions button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ab47bc;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-actions button:hover {
+    background-color: #9c27b0;
+} */
