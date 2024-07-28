@@ -9,61 +9,19 @@ html, body {
 }
 
 /* Ensure header styles are kept */
-header {
-     background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent green background */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
 
-.header-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.logo {
-    height: 80px;
-    margin-right: 20px;
-}
-
-header h1 {
-    flex-grow: 1;
-    margin: 0;
-}
-
-nav {
-    margin-left: auto;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
 
 /* Centering the main content */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 120px); /* Adjust based on header and footer height */
+     min-height: calc(100vh - 120px); 
+
     padding: 20px;
     text-align: center;
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-    margin-top: 10px; /* Adjust if needed */
+    /* margin-top: 10px;  */
 }
 
 /* Styles for the welcome text container */
@@ -87,13 +45,4 @@ main {
     margin: 10px 0 0;
 }
 
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+
