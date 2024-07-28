@@ -11,7 +11,7 @@ Increase Knowledge and Skills: Equip farmers with valuable knowledge and skills 
 
 ## Overview
 
-**Marginal Farmers Support** is an application designed to assist small and marginal farmers by providing access to farming resources, weather updates, educational content, and interactive support tools. The application aims to address challenges faced by farmers, including low productivity, poor access to quality inputs, and inefficient farming practices.
+**AgriSmart** is an application designed to assist small and marginal farmers by providing access to farming resources, weather updates, educational content, and interactive support tools. The application aims to address challenges faced by farmers, including low productivity, poor access to quality inputs, and inefficient farming practices.
 
 ## Features
 
