@@ -1,0 +1,72 @@
+body {
+    background-color: #ffffff;
+    background-image: url("../assets/img/logo.png");
+    background-size: 750px 744px;
+    background-position-x: left;
+    background-repeat: no-repeat;
+    border: 2px #ffffff;
+    width: 400px;
+    height: 500px;
+    box-shadow: 10px 10px 8px 10px #a9f4a5;
+    text-align: center;
+    padding-bottom: 70px;
+    margin-right: 20px;
+    margin-left: 950px;
+    margin-top: 100px;
+
+}
+
+.logo-img {
+
+    margin-left: 0;
+    width: 50%;
+    background-color: #ffffff;
+}
+
+#header {
+    font-size: 40px;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+
+    padding-top: 60px;
+}
+
+.Login {
+    font-size: 20px;
+    background-color: #17a21cee;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 1px;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 70px;
+}
+
+.inputs {
+    border-color: #012b29;
+    border-width: 2px;
+    background-color: #ffffff;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+#signup {
+    width: 120px;
+    height: 22px;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #1da82d;
+    border-color: #012b29;
+    background-color: #012b29;
+    border-style: solid;
+    border-radius: 3px;
+    margin-left: 6px;
+    margin-top: 16px;
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 10px;
+}
