@@ -24,8 +24,12 @@ body {
 } */ 
 
 .logo {
-    height: 50px;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    margin-right: 20px;
 }
+
 
 nav ul {
     list-style: none;
@@ -39,7 +43,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: rgb(23, 23, 23);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: bold;
 }
