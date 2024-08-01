@@ -120,7 +120,7 @@ footer {
 
 html,
 body {
-    background: url('../assets/img/1.png') no-repeat center center;
+    background: url('../assets/img/wel_2.webp') no-repeat center center;
     background-size: cover;
     /* padding: 2rem 1rem; */
     color: #fff;
@@ -135,6 +135,8 @@ body {
     background: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .stat-icon {
     font-size: 2rem;

@@ -2,26 +2,28 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('../assets/img/1.png') no-repeat center center fixed; /* Adjust the path to your image */
+    background: url('../assets/img/1.png') no-repeat center center fixed;
+
     background-size: cover;
-    color: #ffffff; /* Optional: Set a default text color for better readability */
+    color: #ffffff;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    padding: 10px 20px;
+
+    /* padding: 10px 20px; */
     background-color: #4CAF50;
 }
+
 /* .header-content {
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
-    /* display: flex;
+    background-color: rgba(255, 255, 255, 0.8); 
+    display: flex;
     align-items: center;
     justify-content: space-between;
-} */ 
+}  */
 
 .logo {
     margin: 0;
@@ -53,17 +55,20 @@ nav ul li a:hover {
 }
 
 .welcome-container {
-    display: flex; /* Use flexbox for centering */
+    display: flex;
+    /* Use flexbox for centering */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem;
+    /* padding: 2rem; */
     /* background: rgba(255, 255, 255, 0.8); Semi-transparent white background for readability */
     border-radius: 8px;
     max-width: 600px;
-    margin: 0 auto; /* Center horizontally */
-    height: 100vh; /* Full viewport height */
+    margin: 0 auto;
+    /* Center horizontally */
+    height: 100vh;
+    /* Full viewport height */
 }
 
 footer {
