@@ -1,3 +1,4 @@
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
     <header>
         <div class="header-content">
             <img src="../assets/img/logo.png" alt="Logo" class="logo">
-            <!-- Add the path to your logo image -->
+           
             <h1>Marginal Farmers Support</h1>
             <nav>
                 <ul>
@@ -30,10 +31,384 @@
         <h2>Dashboard</h2>
         <p>Here you can find an overview of your farm data and activities.</p>
     </main>
-    <!-- <footer>
-        <p>&copy; 2024 Marginal Farmers Support. All rights reserved.</p> -->
-    <!-- </footer> -->
+
     <script src="../js/dashboard.js"></script>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Marginal Farmers Support</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        /* Add or merge CSS styles here */
+        .dashboard-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .stat-card {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: calc(33% - 1rem);
+            box-sizing: border-box;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .stat-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .stat-card p {
+            margin: 0.2rem 0 0;
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="../assets/img/logo.png" alt="Logo" class="logo">
+            <h1>Marginal Farmers Support</h1>
+            <nav>
+                <ul>
+                    <li><a href="/html/dashboard.html">Dashboard</a></li>
+                    <li><a href="/html/weather-updates.html">Weather Updates</a></li>
+                    <li><a href="/html/chatbot.html">Chatbot</a></li>
+                    <li><a href="/html/educational-resources.html">Educational Resources</a></li>
+                    <li><a href="/html/user-profile.html">User Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h2>Dashboard</h2>
+        <p>Here you can find an overview of your farm data and activities.</p>
+        <section class="dashboard-stats">
+           
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Marginal Farmers Support. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stats = [
+                { title: 'Total Area', value: '50 acres', icon: '🌾' },
+                { title: 'Crops Planted', value: '3 types', icon: '🌱' },
+                { title: 'Water Usage', value: '20,000 liters', icon: '💧' },
+                { title: 'Fertilizer Used', value: '500 kg', icon: '🧪' },
+                { title: 'Harvested Yield', value: '15 tons', icon: '🌽' }
+            ];
+
+            const dashboardStats = document.querySelector('.dashboard-stats');
+
+            if (stats.length === 0) {
+                const noStatsMessage = document.createElement('p');
+                noStatsMessage.textContent = 'No statistics available.';
+                dashboardStats.appendChild(noStatsMessage);
+                return;
+            }
+
+            stats.forEach(stat => {
+                const statCard = document.createElement('div');
+                statCard.className = 'stat-card';
+
+                const statIcon = document.createElement('span');
+                statIcon.className = 'stat-icon';
+                statIcon.textContent = stat.icon;
+
+                const statContent = document.createElement('div');
+                statContent.className = 'stat-content';
+
+                const statTitle = document.createElement('h3');
+                statTitle.textContent = stat.title;
+
+                const statValue = document.createElement('p');
+                statValue.textContent = stat.value;
+
+                statContent.appendChild(statTitle);
+                statContent.appendChild(statValue);
+                statCard.appendChild(statIcon);
+                statCard.appendChild(statContent);
+                dashboardStats.appendChild(statCard);
+            });
+        });
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Marginal Farmers Support</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        .dashboard-stats {
+            
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .dashboard-background {
+            background: url('../assets/img/1.png') no-repeat center center;
+            background-size: cover;
+            padding: 2rem 1rem;
+            color: #fff;
+        }
+        .stat-card {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: calc(33% - 1rem);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .stat-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .stat-card p {
+            margin: 0.2rem 0 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .timestamp {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+
+        .greeting {
+            margin: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .edit-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .edit-form {
+            display: none;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .edit-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .edit-form input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .edit-form button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="../assets/img/logo.png" alt="Logo" class="logo" id="logo">
+            <h1>Marginal Farmers Support</h1>
+            <nav>
+                <ul>
+                    <li><a href="/html/dashboard.html">Dashboard</a></li>
+                    <li><a href="/html/weather-updates.html">Weather Updates</a></li>
+                    <li><a href="/html/chatbot.html">Chatbot</a></li>
+                    <li><a href="/html/educational-resources.html">Educational Resources</a></li>
+                    <li><a href="/html/user-profile.html">User Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="greeting">
+            <!-- Greeting message will be inserted here by JavaScript -->
+        </div>
+        <h2>Dashboard</h2>
+        <p>Here you can find an overview of your farm data and activities.</p>
+        <section class="dashboard-stats">
+            <!-- Stat cards will be inserted here by JavaScript -->
+        </section>
+    </main>
+    <!-- <footer> -->
+        <!-- <p>&copy; 2024 Marginal Farmers Support. All rights reserved.</p> -->
+    <!-- </footer> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = 'John Doe'; // Replace with dynamic user name retrieval
+
+            const greeting = document.querySelector('.greeting');
+            greeting.textContent = `Hello, ${userName}!`;
+
+            const stats = [
+                { title: 'Total Area', value: '50 acres', icon: '🌾' },
+                { title: 'Crops Planted', value: '3 types', icon: '🌱' },
+                { title: 'Water Usage', value: '20,000 liters', icon: '💧' },
+                { title: 'Fertilizer Used', value: '500 kg', icon: '🧪' },
+                { title: 'Harvested Yield', value: '15 tons', icon: '🌽' }
+            ];
+
+            const dashboardStats = document.querySelector('.dashboard-stats');
+
+            if (stats.length === 0) {
+                const noStatsMessage = document.createElement('p');
+                noStatsMessage.textContent = 'No statistics available.';
+                dashboardStats.appendChild(noStatsMessage);
+                return;
+            }
+
+            stats.forEach((stat, index) => {
+                const statCard = document.createElement('div');
+                statCard.className = 'stat-card';
+
+                const statIcon = document.createElement('span');
+                statIcon.className = 'stat-icon';
+                statIcon.textContent = stat.icon;
+
+                const statContent = document.createElement('div');
+                statContent.className = 'stat-content';
+
+                const statTitle = document.createElement('h3');
+                statTitle.textContent = stat.title;
+
+                const statValue = document.createElement('p');
+                statValue.textContent = stat.value;
+
+                const statTimestamp = document.createElement('p');
+                statTimestamp.className = 'timestamp';
+                statTimestamp.textContent = `Last updated: ${new Date().toLocaleString()}`;
+
+                statContent.appendChild(statTitle);
+                statContent.appendChild(statValue);
+                statContent.appendChild(statTimestamp);
+
+                const editButton = document.createElement('button');
+                editButton.className = 'edit-button';
+                editButton.textContent = 'Edit';
+
+                const editForm = document.createElement('div');
+                editForm.className = 'edit-form';
+                editForm.innerHTML = `
+                    <label for="title-${index}">Title</label>
+                    <input type="text" id="title-${index}" value="${stat.title}" />
+                    <label for="value-${index}">Value</label>
+                    <input type="text" id="value-${index}" value="${stat.value}" />
+                    <button id="save-${index}">Save</button>
+                `;
+
+                editButton.addEventListener('click', () => {
+                    editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+                });
+
+                editForm.querySelector(`#save-${index}`).addEventListener('click', () => {
+                    const newTitle = document.querySelector(`#title-${index}`).value;
+                    const newValue = document.querySelector(`#value-${index}`).value;
+                    stat.title = newTitle;
+                    stat.value = newValue;
+                    statTitle.textContent = newTitle;
+                    statValue.textContent = newValue;
+                    statTimestamp.textContent = `Last updated: ${new Date().toLocaleString()}`;
+                    editForm.style.display = 'none';
+                });
+
+                statCard.appendChild(statIcon);
+                statCard.appendChild(statContent);
+                statCard.appendChild(editButton);
+                statCard.appendChild(editForm);
+                dashboardStats.appendChild(statCard);
+            });
+
+            // Add event listener to logo for image editing
+            const logo = document.getElementById('logo');
+            logo.addEventListener('click', () => {
+                const newImageURL = prompt('Enter the new logo image URL:');
+                if (newImageURL) {
+                    logo.src = newImageURL;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

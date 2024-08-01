@@ -112,3 +112,45 @@ footer {
     width: 100%;
     bottom: 0;
 } */
+.dashboard-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.dashboard-background {
+    background: url('../assets/img/1.png') no-repeat center center;
+    background-size: cover;
+    padding: 2rem 1rem;
+    color: #fff;
+}
+.stat-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.stat-card p {
+    margin: 0.2rem 0 0;
+    font-size: 1rem;
+    color: #555;
+}
