@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,14 +13,14 @@
             margin-top: 20px;
             font-size: 14px;
         }
-    </style> -->
+    </style> 
 </head>
 
 <body>
     <header>
         <div class="header-content">
             <img src="..\assets\img\logo.png" alt="Logo" class="logo">
-            <!-- Add the path to your logo image -->
+            
             <h1>Marginal Farmers Support</h1>
             <nav>
                 <ul>
@@ -37,30 +37,92 @@
         <h2>User Profile</h2>
         <p>Manage your profile information and settings.</p>
     </main>
-        <div class="container">
-            <form action="/submit-profile" method="post">
-                <div class="form-group">
-                    <label for="fullName">Full Name:</label>
-                    <input type="text" id="fullName" name="fullName" required>
-                </div>
-                <div class="form-group">
-                    <label for="contactInfo">Contact Information (Phone number):</label>
-                    <input type="tel" id="contactInfo" name="contactInfo" required>
-                </div>
-                <div class="form-group">
-                    <label for="location">Location (Village, District, State):</label>
-                    <textarea id="location" name="location" rows="3" placeholder="Village, District, State"
-                        required></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+    <div class="container">
+        <form action="api/submit-profile" method="post">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="contactInfo">Contact Information (Phone number):</label>
+                <input type="tel" id="contactInfo" name="contactInfo" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location (Village, District, State):</label>
+                <textarea id="location" name="location" rows="3" placeholder="Village, District, State"
+                    required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="../js/user-profile.js"></script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Marginal Farmers Support</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/user-profile.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="../assets/img/logo.png" alt="Logo" class="logo">
+            <h1>Marginal Farmers Support</h1>
+            <nav>
+                <ul>
+                    <li><a href="/html/dashboard.html">Dashboard</a></li>
+                    <li><a href="/html/weather-updates.html">Weather Updates</a></li>
+                    <li><a href="/html/chatbot.html">Chatbot</a></li>
+                    <li><a href="/html/educational-resources.html">Educational Resources</a></li>
+                    <li><a href="/html/user-profile.html">User Profile</a></li>
+                </ul>
+            </nav>
         </div>
-    
-    <!-- <footer>
+    </header>
+    <main>
+        <h2>User Profile</h2>
+        <p>Manage your profile information and settings.</p>
+        <div class="profile-info"></div>
+        <button onclick="editProfile()">Edit Profile</button>
+        <button onclick="changePassword()">Change Password</button>
+    </main>
+    <div class="container">
+        <form id="profileForm" action="/api/submit-profile" method="post">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="contactInfo">Contact Information (Phone number):</label>
+                <input type="tel" id="contactInfo" name="contactInfo" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location (Village, District, State):</label>
+                <textarea id="location" name="location" rows="3" placeholder="Village, District, State"
+                    required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
         <p>&copy; 2024 Marginal Farmers Support. All rights reserved.</p>
-    </footer> -->
+    </footer>
     <script src="../js/user-profile.js"></script>
 </body>
 

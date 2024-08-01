@@ -1,23 +1,78 @@
+
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
-import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import mongoose from 'mongoose';
+import fetch from 'node-fetch';
 
 const app = express();
 const port = 3000;
 const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
-const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f'; // Replace with your SerpApi API key
+const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+mongoose.connect('mongodb://localhost:27017/userData', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+const userProfileSchema = new mongoose.Schema({
+    fullName: String,
+    contactInfo: String,
+    location: String
+});
+
+const UserProfile = mongoose.model('UserProfile', userProfileSchema);
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve the homepage (welcome page)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/welcome.html'));
 });
+
+// Serve the signup page
+app.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/signup.html'));
+});
+
+// Serve the user profile edit page
+app.get('/user-profile', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/user-profile.html'));
+});
+
+// Submit or update user profile
+app.post('/api/submit-profile', async (req, res) => {
+    const { fullName, contactInfo, location } = req.body;
+
+    console.log("Received profile submission: ", req.body);
+
+    try {
+        let userProfile = await UserProfile.findOne({ contactInfo });
+
+        if (userProfile) {
+            // Update existing profile
+            userProfile.fullName = fullName;
+            userProfile.location = location;
+            await userProfile.save();
+            res.status(200).json({ success: true, message: 'Profile updated successfully' });
+        } else {
+            // Create new profile
+            userProfile = new UserProfile({ fullName, contactInfo, location });
+            await userProfile.save();
+            res.status(201).json({ success: true, message: 'Profile created successfully' });
+        }
+    } catch (error) {
+        console.error("Error submitting profile: ", error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
 
 app.get('/search', async (req, res) => {
     const query = req.query.q;
@@ -36,12 +91,7 @@ app.get('/search', async (req, res) => {
     }
 });
 
-app.post('/chatbot', (req, res) => {
-    const userMessage = req.body.message;
-    const botReply = generateBotReply(userMessage);
-    res.json({ reply: botReply });
-});
-
+// Weather endpoint
 app.post('/weather', async (req, res) => {
     const { location } = req.body;
 
@@ -58,6 +108,13 @@ app.post('/weather', async (req, res) => {
         console.error('Error fetching weather data:', error);
         res.status(500).json({ error: 'An error occurred while fetching weather data.' });
     }
+});
+
+// Chatbot endpoint
+app.post('/chatbot', (req, res) => {
+    const userMessage = req.body.message;
+    const botReply = generateBotReply(userMessage);
+    res.json({ reply: botReply });
 });
 
 function generateBotReply(userMessage) {
@@ -86,424 +143,5 @@ function generateBotReply(userMessage) {
 }
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const path = require('path');
-// const app = express();
-// const port = 3000;
-
-// app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/html/index.html'));
-// });
-
-// app.post('/chatbot', (req, res) => {
-//     const userMessage = req.body.message;
-//     const botReply = generateBotReply(userMessage);
-//     res.json({ reply: botReply });
-// });
-
-// function generateBotReply(userMessage) {
-//     const lowerCaseMessage = userMessage.toLowerCase();
-
-//     if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
-//         return 'Hello! How can I assist you today?';
-//     }
-//     if (lowerCaseMessage.includes('weather')) {
-//         return 'The current weather is sunny with a temperature of 30°C.';
-//     }
-//     if (lowerCaseMessage.includes('help')) {
-//         return 'I am here to help you with your farming needs. Ask me anything!';
-//     }
-//     if (lowerCaseMessage.includes('fertilizer')) {
-//         return 'For your crops, I recommend using organic fertilizers such as compost or manure.';
-//     }
-//     if (lowerCaseMessage.includes('pesticide')) {
-//         return 'It is best to use eco-friendly pesticides to minimize environmental impact.';
-//     }
-//     if (lowerCaseMessage.includes('crop rotation')) {
-//         return 'Crop rotation helps improve soil health and reduce pests. Consider rotating legumes with cereals.';
-//     }
-
-//     return 'I am sorry, I do not understand. Could you please rephrase?';
-// }
-
-// app.listen(port, () => {
-//     console.log(`Server running at http://localhost:${port}`);
-// });
-
-
-
-
-
-// // const express = require('express');
-// // const bodyParser = require('body-parser');
-// // const dotenv = require('dotenv');
-// // const { Configuration, OpenAIApi } = require('openai');
-// // const path = require('path');
-
-// // dotenv.config();
-
-// // const app = express();
-// // const port = 3000;
-
-// // const configuration = new Configuration({
-// //   apiKey: process.env.OPENAI_API_KEY,
-// // });
-// // const openai = new OpenAIApi(configuration);
-
-// // app.use(bodyParser.json());
-// // app.use(express.static(path.join(__dirname, 'public')));
-
-// // app.get('/', (req, res) => {
-// //   res.sendFile(path.join(__dirname, 'public/html/index.html'));
-// // });
-
-// // app.post('/chatbot', async (req, res) => {
-// //   const userMessage = req.body.message;
-
-// //   try {
-// //     const completion = await openai.createChatCompletion({
-// //       model: 'gpt-3.5-turbo',
-// //       messages: [{ role: 'user', content: userMessage }],
-// //       max_tokens: 150,
-// //       temperature: 0.7,
-// //     });
-
-// //     const botReply = completion.data.choices[0].message.content.trim();
-// //     res.json({ reply: botReply });
-// //   } catch (error) {
-// //     console.error('Error:', error);
-// //     res.status(500).json({ error: 'An error occurred while processing your request.' });
-// //   }
-// // });
-
-// // app.listen(port, () => {
-// //   console.log(`Server is running on http://localhost:${port}`);
-// // });
-//
-//
-
-
-// const WEATHER_API_KEY = '433d9883719a4001b0495725242807'
-
-
-
-
-// import express from 'express';
-// import bodyParser from 'body-parser';
-// import path from 'path';
-// import { fileURLToPath } from 'url';
-// import fetch from 'node-fetch';
-
-// const app = express();
-// const port = 3000;
-// const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-// app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/html/index.html'));
-// });
-
-// app.post('/chatbot', (req, res) => {
-//     const userMessage = req.body.message;
-//     const botReply = generateBotReply(userMessage);
-//     res.json({ reply: botReply });
-// });
-
-// app.post('/weather', async (req, res) => {
-//     const { location } = req.body;
-
-//     try {
-//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
-//         const data = await response.json();
-
-//         if (data.error) {
-//             res.status(400).json({ error: data.error.message });
-//         } else {
-//             res.json(data);
-//         }
-//     } catch (error) {
-//         console.error('Error fetching weather data:', error);
-//         res.status(500).json({ error: 'An error occurred while fetching weather data.' });
-//     }
-// });
-
-// function generateBotReply(userMessage) {
-//     const lowerCaseMessage = userMessage.toLowerCase();
-
-//     if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
-//         return 'Hello! How can I assist you today?';
-//     }
-//     if (lowerCaseMessage.includes('weather')) {
-//         return 'Please enter your location to get the current weather.';
-//     }
-//     if (lowerCaseMessage.includes('help')) {
-//         return 'I am here to help you with your farming needs. Ask me anything!';
-//     }
-//     if (lowerCaseMessage.includes('fertilizer')) {
-//         return 'For your crops, I recommend using organic fertilizers such as compost or manure.';
-//     }
-//     if (lowerCaseMessage.includes('pesticide')) {
-//         return 'It is best to use eco-friendly pesticides to minimize environmental impact.';
-//     }
-//     if (lowerCaseMessage.includes('crop rotation')) {
-//         return 'Crop rotation helps improve soil health and reduce pests. Consider rotating legumes with cereals.';
-//     }
-
-//     return 'I am sorry, I do not understand. Could you please rephrase?';
-// }
-
-// app.listen(port, () => {
-//     console.log(`Server running at http://localhost:${port}`);
-// });
-//use the lower one always
-// import express from 'express';
-// import bodyParser from 'body-parser';
-// import path from 'path';
-// import fetch from 'node-fetch';
-// import { fileURLToPath } from 'url';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-// const app = express();
-// const port = 3000;
-// const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
-// const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f'; // Replace with your SerpApi API key
-
-// app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// // Serve the index.html file
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/html/index.html'));
-// });
-
-// // Handle search API requests
-// app.get('/search', async (req, res) => {
-//     const query = req.query.q;
-//     const url = `https://serpapi.com/search.json?q=${query}&api_key=${SERP_API_KEY}`;
-
-//     try {
-//         const response = await fetch(url);
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-//         const data = await response.json();
-//         res.json(data);
-//     } catch (error) {
-//         console.error('Error fetching data:', error);
-//         res.status(500).send(`Error fetching data: ${error.message}`);
-//     }
-// });
-
-// // Handle chatbot messages
-// app.post('/chatbot', (req, res) => {
-//     const userMessage = req.body.message;
-//     const botReply = generateBotReply(userMessage);
-//     res.json({ reply: botReply });
-// });
-
-// // Handle weather requests
-// app.post('/weather', async (req, res) => {
-//     const { location } = req.body;
-
-//     try {
-//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
-//         const data = await response.json();
-
-//         if (data.error) {
-//             res.status(400).json({ error: data.error.message });
-//         } else {
-//             res.json(data);
-//         }
-//     } catch (error) {
-//         console.error('Error fetching weather data:', error);
-//         res.status(500).json({ error: 'An error occurred while fetching weather data.' });
-//     }
-// });
-
-// // Generate chatbot replies
-// function generateBotReply(userMessage) {
-//     const lowerCaseMessage = userMessage.toLowerCase();
-
-//     if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
-//         return 'Hello! How can I assist you today?';
-//     }
-//     if (lowerCaseMessage.includes('weather')) {
-//         return 'Please enter your location to get the current weather.';
-//     }
-//     if (lowerCaseMessage.includes('help')) {
-//         return 'I am here to help you with your farming needs. Ask me anything!';
-//     }
-//     if (lowerCaseMessage.includes('fertilizer')) {
-//         return 'For your crops, I recommend using organic fertilizers such as compost or manure.';
-//     }
-//     if (lowerCaseMessage.includes('pesticide')) {
-//         return 'It is best to use eco-friendly pesticides to minimize environmental impact.';
-//     }
-//     if (lowerCaseMessage.includes('crop rotation')) {
-//         return 'Crop rotation helps improve soil health and reduce pests. Consider rotating legumes with cereals.';
-//     }
-
-//     return 'I am sorry, I do not understand. Could you please rephrase?';
-// }
-
-// app.listen(port, () => {
-//     console.log(`Server running at http://localhost:${port}`);
-// });
-
-
-
-
-
-
-
-
-
-
- // Import dotenv
-
-// dotenv.config(); // Load environment variables from .env file
-
-// const app = express();
-// const port = 3000;
-// const WEATHER_API_KEY = process.env.WEATHER_API_KEY || '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
-// const PROJECT_ID = process.env.PROJECT_ID || 'greeninnovatorsbot-jr9n'; // Replace with your Dialogflow project ID
-// const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-// app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// const sessionClient = new SessionsClient(); // Create the SessionsClient
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/html/index.html'));
-// });
-
-// app.get('/search', async (req, res) => {
-//     const query = req.query.q;
-//     const url = `https://serpapi.com/search.json?q=${query}&api_key=${SERP_API_KEY}`;
-
-//     try {
-//         const response = await fetch(url);
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-//         const data = await response.json();
-//         res.json(data);
-//     } catch (error) {
-//         console.error('Error fetching data:', error);
-//         res.status(500).send(`Error fetching data: ${error.message}`);
-//     }
-// });
-
-// app.post('/chatbot', async (req, res) => {
-//     const userMessage = req.body.message;
-//     const sessionId = uuidv4(); // Generate a unique session ID for each request
-
-//     try {
-//         const response = await detectIntent(userMessage, sessionId);
-//         res.json({ reply: response });
-//     } catch (error) {
-//         console.error('Error communicating with Dialogflow:', error);
-//         res.status(500).json({ reply: 'An error occurred while processing your request.' });
-//     }
-// });
-
-// app.post('/weather', async (req, res) => {
-//     const { location } = req.body;
-
-//     try {
-//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
-//         const data = await response.json();
-
-//         if (data.error) {
-//             res.status(400).json({ error: data.error.message });
-//         } else {
-//             res.json(data);
-//         }
-//     } catch (error) {
-//         console.error('Error fetching weather data:', error);
-//         res.status(500).json({ error: 'An error occurred while fetching weather data.' });
-//     }
-// });
-
-// async function detectIntent(message, sessionId) {
-//     const sessionPath = sessionClient.projectAgentSessionPath(PROJECT_ID, sessionId);
-
-//     const request = {
-//         session: sessionPath,
-//         queryInput: {
-//             text: {
-//                 text: message,
-//                 languageCode: 'en-US',
-//             },
-//         },
-//     };
-
-//     try {
-//         console.log('Sending request to Dialogflow:', request);
-//         const responses = await sessionClient.detectIntent(request);
-//         console.log('Dialogflow response:', responses);
-
-//         const result = responses[0].queryResult;
-
-//         if (result.intent.displayName === 'WeatherIntent') {
-//             const location = result.parameters.fields.location.stringValue;
-//             const weatherData = await getWeather(location);
-//             return weatherData;
-//         } else if (result.fulfillmentText) {
-//             return result.fulfillmentText;
-//         } else {
-//             return 'I am sorry, I do not understand. Could you please rephrase?';
-//         }
-//     } catch (error) {
-//         console.error('Error detecting intent:', error);
-//         throw new Error('Error detecting intent');
-//     }
-// }
-
-// async function getWeather(location) {
-//     try {
-//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-//         const data = await response.json();
-
-//         if (data.error) {
-//             return `Sorry, I couldn't get the weather for ${location}. ${data.error.message}`;
-//         } else {
-//             return `The current weather in ${location} is ${data.current.condition.text} with a temperature of ${data.current.temp_c}°C (${data.current.temp_f}°F).`;
-//         }
-//     } catch (error) {
-//         console.error('Error fetching weather data:', error);
-//         return 'An error occurred while fetching the weather data.';
-//     }
-// }
-

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Page - Marginal Farmers Support</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/soil.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="../assets/img/logo.png" alt="Logo" class="logo">
+            <h1>Marginal Farmers Support</h1>
+            <nav>
+                <ul>
+                    <li><a href="/html/dashboard.html">Dashboard</a></li>
+                    <li><a href="/html/weather-updates.html">Weather Updates</a></li>
+                    <li><a href="/html/chatbot.html">Chatbot</a></li>
+                    <li><a href="/html/educational-resources.html">Educational Resources</a></li>
+                    <li><a href="/html/user-profile.html">User Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h2>Soil Moisture</h2>
+        <p>Calculate the soil moisture here:</p>
+        <form id="moisture-form">
+            <label for="weight-before">Weight before drying (kg):</label>
+            <input type="number" id="weight-before" name="weight-before" step="0.01" required>
+
+            <label for="weight-after">Weight after drying (kg):</label>
+            <input type="number" id="weight-after" name="weight-after" step="0.01" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result" style="margin-top: 20px;"></div>
+    </main>
+    <!-- <footer>
+        <p>&copy; 2024 Marginal Farmers Support. All rights reserved.</p>
+    </footer> -->
+    <script src="../js/soil.js"></script>
+</body>
+
+</html>
