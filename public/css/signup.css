@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: #33A039;
     background-image: url("../assets/img/logo2.png");
     background-size: 750px 744px;
     background-position-x: left;
@@ -7,7 +7,7 @@ body {
     border: 2px #ffffff;
     width: 400px;
     height: 500px;
-    box-shadow: 10px 10px 8px 10px #a9f4a5;
+    /* box-shadow: 10px 10px 8px 10px #a9f4a5; */
     text-align: center;
     padding-bottom: 70px;
     margin-right: 20px;
@@ -16,6 +16,7 @@ body {
 
 }
 
+/* #33A039 */
 .logo-img {
 
     margin-left: 0;
@@ -34,7 +35,7 @@ body {
 
 .Login {
     font-size: 20px;
-    background-color: #17a21cee;
+    background-color: #ffffffee;
     font-family: 'Handjet', cursive;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Nunito Sans', sans-serif;

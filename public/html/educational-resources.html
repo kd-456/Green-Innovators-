@@ -4,14 +4,14 @@
 <!-- <html lang="en">
 
 <head> -->
-    <!-- <meta charset="UTF-8"> -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <!-- <title>Search API Setup</title> -->
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+<!-- <meta charset="UTF-8"> -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!-- <title>Search API Setup</title> -->
+<!-- <link rel="stylesheet" href="styles.css"> -->
 <!-- </head> -->
 
 <!-- <body> -->
-    <!-- <h1>Search API</h1>
+<!-- <h1>Search API</h1>
     <form id="searchForm">
         <input type="text" id="query" placeholder="Search...">
         <button type="submit">Search</button>
@@ -20,7 +20,8 @@
 
     <script src="script.js"></script> -->
 <!-- </body> -->
-<head>
+
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educational Resources - Marginal Farmers Support</title>
@@ -67,7 +68,7 @@
     <header>
         <div class="header-content">
             <img src="..\assets\img\logo.png" alt="Logo" class="logo">
-            <!-- Add the path to your logo image -->
+            
             <h1>Marginal Farmers Support</h1>
             <nav>
                 <ul>
@@ -106,18 +107,113 @@
                     <p>Watch informative videos on irrigation and climate management.</p>
                 </a>
             </div>
-            <!-- <div class="panel"> -->
-                <!-- <a href="guides.html">
-                    <img src="../images/guides.jpg" alt="Guides">
-                    <h3>Article</h3>
-                    <p>Download guides to help you implement effective farming techniques.</p> -->
-                <!-- </a> -->
+            
             </div>
         </div>
     </main>
-    <!-- <footer> -->
-        <!-- <p>&copy; 2024 Marginal Farmers Support. All rights reserved.</p> -->
-    <!-- </footer> -->
+    
+    <script src="../js/educational-resources.js"></script>
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources - Marginal Farmers Support</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/educational-resources.css">
+    <style>
+        .panel-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .panel {
+            width: 30%;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .panel:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .panel a {
+            text-decoration: none;
+            color: #252525;
+            font-weight: bold;
+        }
+
+        .panel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="..\assets\img\logo.png" alt="Logo" class="logo">
+            <h1>Marginal Farmers Support</h1>
+            <nav>
+                <ul>
+                    <li><a href="/html/dashboard.html">Dashboard</a></li>
+                    <li><a href="/html/weather-updates.html">Weather Updates</a></li>
+                    <li><a href="/html/chatbot.html">Chatbot</a></li>
+                    <li><a href="/html/educational-resources.html">Educational Resources</a></li>
+                    <li><a href="/html/user-profile.html">User Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h3>Search API</h3>
+        <form id="searchForm">
+            <input type="text" id="query" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+        <div id="results"></div>
+
+        <ul class="resource-list"></ul>
+        <h2>Educational Resources</h2>
+        <p>Access a variety of resources to improve your farming knowledge and skills.</p>
+
+        <div class="panel-container">
+            <div class="panel">
+                <a href="articles.html">
+                    <img src="../assets/img/article_image.png" alt="Articles">
+                    <h3>Guide</h3>
+                    <p>Read detailed articles on best practices in farming.</p>
+                </a>
+            </div>
+            <div class="panel">
+                <a href="videos.html">
+                    <img src="../assets/img/irrigation.jpg" alt="Videos">
+                    <h3>Videos</h3>
+                    <p>Watch informative videos on irrigation and climate management.</p>
+                </a>
+            </div>
+        </div>
+
+
+    </main>
+    <!-- <footer>
+        <p>&copy; 2024 Marginal Farmers Support. All rights reserved.</p>
+    </footer> -->
     <script src="../js/educational-resources.js"></script>
 </body>
 
