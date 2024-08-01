@@ -21,3 +21,24 @@ To get started with Marginal Farmers Support, follow these steps:
    ```bash
    git clone https://github.com/your-username/marginal-farmers-support.git
 
+## Tech Stack
+- Frontend: HTML,CSS, JavaScript
+- Backend: Node.js
+- Database: MongoDb
+- Weather API: WeatherMap (for real-time weather updates)
+- Search API : Serp API
+  
+## Future Enhancements
+- App analyzes data to generate personalized irrigation schedules.
+- Farmers implement recommendations and provide feedback.
+- Develop tools for parental engagement to support children's learning journeys.
+- Provide resources and tools focused on sustainable and eco-friendly farming practices.
+
+## Contributed by :
+- Aditi Sharma
+- Ayana Bishnoi
+- Bharti Bansal
+- Komal
+
+   
+
