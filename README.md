@@ -29,12 +29,12 @@ To get started with Marginal Farmers Support, follow these steps:
 - Search API : Serp API
   
 ## Future Enhancements
-App analyzes data to generate personalized irrigation schedules.
-Upgrade chatbot to provide personalized solutions related to crop management and realtime weather forecasts
-Farmers implement recommendations and provide feedback.
-Provide resources and tools focused on sustainable and eco-friendly farming practices.
-Users will be able to compare previous crop profits, perform market analysis, and decide whether to plant a new crop or continue with the same one.
-The platform will facilitate user connectivity, enabling farmers to network and share insights with each other.
+- App analyzes data to generate personalized irrigation schedules.
+- Upgrade chatbot to provide personalized solutions related to crop management and realtime weather forecasts
+- Farmers implement recommendations and provide feedback.
+- Provide resources and tools focused on sustainable and eco-friendly farming practices.
+- Users will be able to compare previous crop profits, perform market analysis, and decide whether to plant a new crop or continue with the same one.
+- The platform will facilitate user connectivity, enabling farmers to network and share insights with each other.
 
 
 
