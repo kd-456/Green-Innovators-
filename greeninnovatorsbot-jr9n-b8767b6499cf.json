@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "greeninnovatorsbot-jr9n",
+  "private_key_id": "b8767b6499cf001f92bb87186cdfa3f9caffbefd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC6UkzTo5CmjFxG\nXbEUUqO2PHFy8eJjJMPPpyRBBcFpeiCzk01NqZFJbICte9nb5nCiGV22KlOUGs44\n9fvTwr6+nw8s077ujoct3PvEU+2+tPxUg8VRMpL6Uam9EnhpP6wGlZOxIUrI/uJb\njJZdGhNkA0Rx85QYmNRE3YD3O5WBNi3kTREPsBpu1CRBSu354B7H8wGZpJTCNwGy\nGH/xxInLwBHugiGagLCVdG9P77qWyDrsYa+3m3FDV9dyEy/SuNhfExOyE2wcqgcy\nM3RsvxAwGZ2dUnLO6dv5aFfXWsvAn5R5SxkZeQm559OsvMx/L1ayj0SkhWU+40bp\nrVux440pAgMBAAECggEAKZiMDEec2IHHa/IowVe9ssaFsVqs5uNjT62J23ZUep7I\nRC7jeC4eAF1X0OMwfPZSOO4ezLdgV1UwqujHorv8Z4QNGD3hh1KMfUGzd14hWoz/\nNEMCvyDiTT4D/fDsrtqHJiUohsfe8UZt9HBLdVeH8rEEC8iMTH16DjHBQ/CqbODx\nDvcbRIOcgJN7YX/TUkpLNVL5gmGLZ9L9qcbDILoIAxxy4miwF0kWcq+idEmMPOug\nVoFEHZe7oSEw6T1QGHsuAUtVcRUEgW7YDydRUqstr6dgzKVkOa540fUt/fH40f3d\n+jsr8Bh11PiEQuDstD2GkPEPb9BJPadcfG9mBVmTTQKBgQDevkHEQrL9qvMvhPXd\ndZ6O7OuD897EFuD08FzMhcOOWzd9JmLUNB2HNblamqGYw0PiKAZNxb94W+9yO4DN\nDpuP6KTNfjlrLVqpB+2EoCu5SsC6Khw6gXxNSuUVzljEm7Gm8xyT/gmwUuTcwGWh\n02nwheTg5WkYbfxkJPuMHkq0jwKBgQDWI+ySLvCIG0bpjivcq7OHf6f+nMc8ceda\nzEJOxSGZ8Xqi1Zo+5TQC+MbEORNnFsuyBHSsK39SPxs7gpNFtP345SEC/SpFIW7f\nGeyfikmroyMYL5UJ+AepuYS2CescXm4qIeLBK4Z7TeEw604O2QO6JwDInpaakvyU\na38UK2iuxwKBgQCfTkOLMokBk/pJyjZuJWk5n4jx3sE8TYCmriIwxJqQffy5rXKR\ngpR715ixjFZ3A3DRlv6rMPs4AcjHUndUMVZhHmp/7f7zAIUOz3S4njWnWCdu/h8i\nWOml/iLJ7cLfGtt8I/QUhGQ5j4/Psmr9yk7Cj4CauHjp1//jP/AIzsFvUQKBgAhm\nkmJNuxvrzgVdkXTvu3RGWsXPSrWhVk0mlDdY3m+WnJQEwy9SeI7hSZLrFkrGBymt\nqRIUBsOoPB5CihqC9i+sdXYTjnP10s6nyrObjjZQiRDq1PL2Kv7Ki11E2FddkP7Q\nI4Amf/kYXgw4PvCwLMhBvXMhXZEk0QnVib+10D6DAoGBAKultPUfuA/5U+Lv8Yxa\naYPmHYeFIy4HsBFzXjSEFPgkbIEhllYrb4H/bJKwzuVtrUk0wJyZD/gAJcJuPnLC\n/qfe862C0Yw/vyjkC9rnISTYHyGplW1HQwLpM91Z3uw1AdGn3x52j5Nb06x+9X0x\nB9bqmG+kz1rA4faWoVYp+t+B\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-client@greeninnovatorsbot-jr9n.iam.gserviceaccount.com",
+  "client_id": "107982309441271281450",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-client%40greeninnovatorsbot-jr9n.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
