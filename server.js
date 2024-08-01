@@ -1,93 +1,93 @@
-// import express from 'express';
-// import bodyParser from 'body-parser';
-// import path from 'path';
-// import fetch from 'node-fetch';
-// import { fileURLToPath } from 'url';
+import express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
+import fetch from 'node-fetch';
+import { fileURLToPath } from 'url';
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// const app = express();
-// const port = 3000;
-// const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
-// const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f'; // Replace with your SerpApi API key
+const app = express();
+const port = 3000;
+const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
+const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f'; // Replace with your SerpApi API key
 
-// app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/html/index.html'));
-// });
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/index.html'));
+});
 
-// app.get('/search', async (req, res) => {
-//     const query = req.query.q;
-//     const url = `https://serpapi.com/search.json?q=${query}&api_key=${SERP_API_KEY}`;
+app.get('/search', async (req, res) => {
+    const query = req.query.q;
+    const url = `https://serpapi.com/search.json?q=${query}&api_key=${SERP_API_KEY}`;
 
-//     try {
-//         const response = await fetch(url);
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-//         const data = await response.json();
-//         res.json(data);
-//     } catch (error) {
-//         console.error('Error fetching data:', error);
-//         res.status(500).send(`Error fetching data: ${error.message}`);
-//     }
-// });
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        res.status(500).send(`Error fetching data: ${error.message}`);
+    }
+});
 
-// app.post('/chatbot', (req, res) => {
-//     const userMessage = req.body.message;
-//     const botReply = generateBotReply(userMessage);
-//     res.json({ reply: botReply });
-// });
+app.post('/chatbot', (req, res) => {
+    const userMessage = req.body.message;
+    const botReply = generateBotReply(userMessage);
+    res.json({ reply: botReply });
+});
 
-// app.post('/weather', async (req, res) => {
-//     const { location } = req.body;
+app.post('/weather', async (req, res) => {
+    const { location } = req.body;
 
-//     try {
-//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
-//         const data = await response.json();
+    try {
+        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
+        const data = await response.json();
 
-//         if (data.error) {
-//             res.status(400).json({ error: data.error.message });
-//         } else {
-//             res.json(data);
-//         }
-//     } catch (error) {
-//         console.error('Error fetching weather data:', error);
-//         res.status(500).json({ error: 'An error occurred while fetching weather data.' });
-//     }
-// });
+        if (data.error) {
+            res.status(400).json({ error: data.error.message });
+        } else {
+            res.json(data);
+        }
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        res.status(500).json({ error: 'An error occurred while fetching weather data.' });
+    }
+});
 
-// function generateBotReply(userMessage) {
-//     const lowerCaseMessage = userMessage.toLowerCase();
+function generateBotReply(userMessage) {
+    const lowerCaseMessage = userMessage.toLowerCase();
 
-//     if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
-//         return 'Hello! How can I assist you today?';
-//     }
-//     if (lowerCaseMessage.includes('weather')) {
-//         return 'Please enter your location to get the current weather.';
-//     }
-//     if (lowerCaseMessage.includes('help')) {
-//         return 'I am here to help you with your farming needs. Ask me anything!';
-//     }
-//     if (lowerCaseMessage.includes('fertilizer')) {
-//         return 'For your crops, I recommend using organic fertilizers such as compost or manure.';
-//     }
-//     if (lowerCaseMessage.includes('pesticide')) {
-//         return 'It is best to use eco-friendly pesticides to minimize environmental impact.';
-//     }
-//     if (lowerCaseMessage.includes('crop rotation')) {
-//         return 'Crop rotation helps improve soil health and reduce pests. Consider rotating legumes with cereals.';
-//     }
+    if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
+        return 'Hello! How can I assist you today?';
+    }
+    if (lowerCaseMessage.includes('weather')) {
+        return 'Please enter your location to get the current weather.';
+    }
+    if (lowerCaseMessage.includes('help')) {
+        return 'I am here to help you with your farming needs. Ask me anything!';
+    }
+    if (lowerCaseMessage.includes('fertilizer')) {
+        return 'For your crops, I recommend using organic fertilizers such as compost or manure.';
+    }
+    if (lowerCaseMessage.includes('pesticide')) {
+        return 'It is best to use eco-friendly pesticides to minimize environmental impact.';
+    }
+    if (lowerCaseMessage.includes('crop rotation')) {
+        return 'Crop rotation helps improve soil health and reduce pests. Consider rotating legumes with cereals.';
+    }
 
-//     return 'I am sorry, I do not understand. Could you please rephrase?';
-// }
+    return 'I am sorry, I do not understand. Could you please rephrase?';
+}
 
-// app.listen(port, () => {
-//     console.log(`Server running at http://localhost:${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
 
 
 
@@ -381,139 +381,139 @@
 
 
 
+//with dialogflow api
 
+// import express from 'express';
+// import bodyParser from 'body-parser';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
+// import fetch from 'node-fetch';
+// import { SessionsClient } from '@google-cloud/dialogflow';
+// import { v4 as uuidv4 } from 'uuid';
+// import dotenv from 'dotenv'; // Import dotenv
 
-import express from 'express';
-import bodyParser from 'body-parser';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fetch from 'node-fetch';
-import { SessionsClient } from '@google-cloud/dialogflow';
-import { v4 as uuidv4 } from 'uuid';
-import dotenv from 'dotenv'; // Import dotenv
+// dotenv.config(); // Load environment variables from .env file
 
-dotenv.config(); // Load environment variables from .env file
+// const app = express();
+// const port = 3000;
+// const WEATHER_API_KEY = process.env.WEATHER_API_KEY || '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
+// const PROJECT_ID = process.env.PROJECT_ID || 'greeninnovatorsbot-jr9n'; // Replace with your Dialogflow project ID
+// const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f';
 
-const app = express();
-const port = 3000;
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY || '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
-const PROJECT_ID = process.env.PROJECT_ID || 'greeninnovatorsbot-jr9n'; // Replace with your Dialogflow project ID
-const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f';
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// app.use(bodyParser.json());
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+// const sessionClient = new SessionsClient(); // Create the SessionsClient
 
-const sessionClient = new SessionsClient(); // Create the SessionsClient
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/html/index.html'));
+// });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/html/index.html'));
-});
+// app.get('/search', async (req, res) => {
+//     const query = req.query.q;
+//     const url = `https://serpapi.com/search.json?q=${query}&api_key=${SERP_API_KEY}`;
 
-app.get('/search', async (req, res) => {
-    const query = req.query.q;
-    const url = `https://serpapi.com/search.json?q=${query}&api_key=${SERP_API_KEY}`;
+//     try {
+//         const response = await fetch(url);
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//         const data = await response.json();
+//         res.json(data);
+//     } catch (error) {
+//         console.error('Error fetching data:', error);
+//         res.status(500).send(`Error fetching data: ${error.message}`);
+//     }
+// });
 
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        res.json(data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        res.status(500).send(`Error fetching data: ${error.message}`);
-    }
-});
+// app.post('/chatbot', async (req, res) => {
+//     const userMessage = req.body.message;
+//     const sessionId = uuidv4(); // Generate a unique session ID for each request
 
-app.post('/chatbot', async (req, res) => {
-    const userMessage = req.body.message;
-    const sessionId = uuidv4(); // Generate a unique session ID for each request
+//     try {
+//         const response = await detectIntent(userMessage, sessionId);
+//         res.json({ reply: response });
+//     } catch (error) {
+//         console.error('Error communicating with Dialogflow:', error);
+//         res.status(500).json({ reply: 'An error occurred while processing your request.' });
+//     }
+// });
 
-    try {
-        const response = await detectIntent(userMessage, sessionId);
-        res.json({ reply: response });
-    } catch (error) {
-        console.error('Error communicating with Dialogflow:', error);
-        res.status(500).json({ reply: 'An error occurred while processing your request.' });
-    }
-});
+// app.post('/weather', async (req, res) => {
+//     const { location } = req.body;
 
-app.post('/weather', async (req, res) => {
-    const { location } = req.body;
+//     try {
+//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
+//         const data = await response.json();
 
-    try {
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
-        const data = await response.json();
+//         if (data.error) {
+//             res.status(400).json({ error: data.error.message });
+//         } else {
+//             res.json(data);
+//         }
+//     } catch (error) {
+//         console.error('Error fetching weather data:', error);
+//         res.status(500).json({ error: 'An error occurred while fetching weather data.' });
+//     }
+// });
 
-        if (data.error) {
-            res.status(400).json({ error: data.error.message });
-        } else {
-            res.json(data);
-        }
-    } catch (error) {
-        console.error('Error fetching weather data:', error);
-        res.status(500).json({ error: 'An error occurred while fetching weather data.' });
-    }
-});
+// async function detectIntent(message, sessionId) {
+//     const sessionPath = sessionClient.projectAgentSessionPath(PROJECT_ID, sessionId);
 
-async function detectIntent(message, sessionId) {
-    const sessionPath = sessionClient.projectAgentSessionPath(PROJECT_ID, sessionId);
+//     const request = {
+//         session: sessionPath,
+//         queryInput: {
+//             text: {
+//                 text: message,
+//                 languageCode: 'en-US',
+//             },
+//         },
+//     };
 
-    const request = {
-        session: sessionPath,
-        queryInput: {
-            text: {
-                text: message,
-                languageCode: 'en-US',
-            },
-        },
-    };
+//     try {
+//         console.log('Sending request to Dialogflow:', request);
+//         const responses = await sessionClient.detectIntent(request);
+//         console.log('Dialogflow response:', responses);
 
-    try {
-        console.log('Sending request to Dialogflow:', request);
-        const responses = await sessionClient.detectIntent(request);
-        console.log('Dialogflow response:', responses);
+//         const result = responses[0].queryResult;
 
-        const result = responses[0].queryResult;
+//         if (result.intent.displayName === 'WeatherIntent') {
+//             const location = result.parameters.fields.location.stringValue;
+//             const weatherData = await getWeather(location);
+//             return weatherData;
+//         } else if (result.fulfillmentText) {
+//             return result.fulfillmentText;
+//         } else {
+//             return 'I am sorry, I do not understand. Could you please rephrase?';
+//         }
+//     } catch (error) {
+//         console.error('Error detecting intent:', error);
+//         throw new Error('Error detecting intent');
+//     }
+// }
 
-        if (result.intent.displayName === 'WeatherIntent') {
-            const location = result.parameters.fields.location.stringValue;
-            const weatherData = await getWeather(location);
-            return weatherData;
-        } else if (result.fulfillmentText) {
-            return result.fulfillmentText;
-        } else {
-            return 'I am sorry, I do not understand. Could you please rephrase?';
-        }
-    } catch (error) {
-        console.error('Error detecting intent:', error);
-        throw new Error('Error detecting intent');
-    }
-}
+// async function getWeather(location) {
+//     try {
+//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//         const data = await response.json();
 
-async function getWeather(location) {
-    try {
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+//         if (data.error) {
+//             return `Sorry, I couldn't get the weather for ${location}. ${data.error.message}`;
+//         } else {
+//             return `The current weather in ${location} is ${data.current.condition.text} with a temperature of ${data.current.temp_c}°C (${data.current.temp_f}°F).`;
+//         }
+//     } catch (error) {
+//         console.error('Error fetching weather data:', error);
+//         return 'An error occurred while fetching the weather data.';
+//     }
+// }
 
-        if (data.error) {
-            return `Sorry, I couldn't get the weather for ${location}. ${data.error.message}`;
-        } else {
-            return `The current weather in ${location} is ${data.current.condition.text} with a temperature of ${data.current.temp_c}°C (${data.current.temp_f}°F).`;
-        }
-    } catch (error) {
-        console.error('Error fetching weather data:', error);
-        return 'An error occurred while fetching the weather data.';
-    }
-}
-
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Server running at http://localhost:${port}`);
+// });
