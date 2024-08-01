@@ -105,32 +105,127 @@
 
 
 
+// import express from 'express';
+// import bodyParser from 'body-parser';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
+// import fetch from 'node-fetch';
+
+// const app = express();
+// const port = 3000;
+// const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
+// app.use(bodyParser.json());
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/html/index.html'));
+// });
+
+// app.post('/chatbot', (req, res) => {
+//     const userMessage = req.body.message;
+//     const botReply = generateBotReply(userMessage);
+//     res.json({ reply: botReply });
+// });
+
+// app.post('/weather', async (req, res) => {
+//     const { location } = req.body;
+
+//     try {
+//         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${location}`);
+//         const data = await response.json();
+
+//         if (data.error) {
+//             res.status(400).json({ error: data.error.message });
+//         } else {
+//             res.json(data);
+//         }
+//     } catch (error) {
+//         console.error('Error fetching weather data:', error);
+//         res.status(500).json({ error: 'An error occurred while fetching weather data.' });
+//     }
+// });
+
+// function generateBotReply(userMessage) {
+//     const lowerCaseMessage = userMessage.toLowerCase();
+
+//     if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
+//         return 'Hello! How can I assist you today?';
+//     }
+//     if (lowerCaseMessage.includes('weather')) {
+//         return 'Please enter your location to get the current weather.';
+//     }
+//     if (lowerCaseMessage.includes('help')) {
+//         return 'I am here to help you with your farming needs. Ask me anything!';
+//     }
+//     if (lowerCaseMessage.includes('fertilizer')) {
+//         return 'For your crops, I recommend using organic fertilizers such as compost or manure.';
+//     }
+//     if (lowerCaseMessage.includes('pesticide')) {
+//         return 'It is best to use eco-friendly pesticides to minimize environmental impact.';
+//     }
+//     if (lowerCaseMessage.includes('crop rotation')) {
+//         return 'Crop rotation helps improve soil health and reduce pests. Consider rotating legumes with cereals.';
+//     }
+
+//     return 'I am sorry, I do not understand. Could you please rephrase?';
+// }
+
+// app.listen(port, () => {
+//     console.log(`Server running at http://localhost:${port}`);
+// });
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import fetch from 'node-fetch';
-
-const app = express();
-const port = 3000;
-const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const app = express();
+const port = 3000;
+const WEATHER_API_KEY = '433d9883719a4001b0495725242807'; // Replace with your WeatherAPI key
+const SERP_API_KEY = '8e1f0f9595e2a84041700b680c8f026288c16e0d21b04f15ed76f485c2c16d8f'; // Replace with your SerpApi API key
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve the index.html file
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/index.html'));
 });
 
+// Handle search API requests
+app.get('/search', async (req, res) => {
+    const query = req.query.q;
+    const url = `https://serpapi.com/search.json?q=${query}&api_key=${SERP_API_KEY}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        res.status(500).send(`Error fetching data: ${error.message}`);
+    }
+});
+
+// Handle chatbot messages
 app.post('/chatbot', (req, res) => {
     const userMessage = req.body.message;
     const botReply = generateBotReply(userMessage);
     res.json({ reply: botReply });
 });
 
+// Handle weather requests
 app.post('/weather', async (req, res) => {
     const { location } = req.body;
 
@@ -149,6 +244,7 @@ app.post('/weather', async (req, res) => {
     }
 });
 
+// Generate chatbot replies
 function generateBotReply(userMessage) {
     const lowerCaseMessage = userMessage.toLowerCase();
 
@@ -177,6 +273,7 @@ function generateBotReply(userMessage) {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
 
 
 
