@@ -1,0 +1,86 @@
+body {
+    background-color: #33A039;
+    background-image: url("../assets/img/logo3.png");
+    background-size: 750px 744px;
+    background-position-x: left;
+    background-repeat: no-repeat;
+    border: 2px #ffffff;
+    width: 400px;
+    height: 330px;
+    box-shadow: 10px 10px 8px 10px #28802cc2;
+    text-align: center;
+    padding-bottom: 70px;
+    margin-right: 20px;
+    margin-left: 950px;
+    margin-top: 150px;
+}
+
+#header {
+    font-size: 40px;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-top: 60px;
+}
+
+.Login {
+    font-size: 20px;
+    background-color: #ffffffee;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 1px;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 70px;
+}
+
+.inputs {
+    border-color: #012b29;
+    border-width: 2px;
+    background-color: #ffffff;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+#loginbtn {
+    width: 120px;
+    height: 22px;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #ffffff;
+    border-color: #036e1a;
+    border-radius: 4px;
+    background-color: #037712;
+    border-style: solid;
+    margin-left: 6px;
+    margin-top: 16px;
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 10px;
+}
+
+.below {
+    padding-top: 20px;
+    font-size: 14px;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 5px;
+}
+
+#fpswd {
+    width: 120px;
+    height: 22px;
+    font-family: 'Handjet', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #ffffff;
+    border-color: #036e1a;
+    border-radius: 4px;
+    background-color: #037712;
+    border-style: solid;
+    margin-left: 20px;
+}

@@ -14,34 +14,30 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="right-half">
-            <!-- <form id="loginForm" action="login_back.php" onsubmit="return validateForm()"> -->
+    <form>
+        <div class="Login">
             <div id="header">
                 Log in
             </div>
-            <div class="Login">
-                <label for="un">Username:</label>
-                <div>
-                    <input type="text" name="Username" class="inputs" id="un">
-                </div>
-                <label for="pswd">Password: </label>
-                <div>
-                    <input type="password" name="Password" class="inputs" id="pswd">
-                </div>
+            <br>
+            <label for="un">Username:</label>
+            <div>
+                <input type="text" name="Username" class="inputs" id="un">
+            </div>
+            <label for="pswd">Password:</label>
+            <div>
+                <input type="password" name="Password" class="inputs" id="pswd">
             </div>
             <div class="below">
-                <label for="rm">Remember Me: </label>
+                <label for="rm">Remember Me:</label>
                 <input type="checkbox" id="rm">
                 <input type="button" value="Forgot Password?" id="fpswd">
             </div>
-            <div class="loginbtn">
+            <div>
                 <input type="submit" value="Login" id="loginbtn">
             </div>
-            </form>
         </div>
-    </div>
-    <!-- <script src="{{ url_for('static', filename='js/login.js') }}"></script> -->
+    </form>
 </body>
 
 </html>
