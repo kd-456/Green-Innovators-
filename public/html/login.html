@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Handjet:wght@300&family=Montserrat:wght@300&family=Nunito+Sans:wght@600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="right-half">
+            <!-- <form id="loginForm" action="login_back.php" onsubmit="return validateForm()"> -->
+            <div id="header">
+                Log in
+            </div>
+            <div class="Login">
+                <label for="un">Username:</label>
+                <div>
+                    <input type="text" name="Username" class="inputs" id="un">
+                </div>
+                <label for="pswd">Password: </label>
+                <div>
+                    <input type="password" name="Password" class="inputs" id="pswd">
+                </div>
+            </div>
+            <div class="below">
+                <label for="rm">Remember Me: </label>
+                <input type="checkbox" id="rm">
+                <input type="button" value="Forgot Password?" id="fpswd">
+            </div>
+            <div class="loginbtn">
+                <input type="submit" value="Login" id="loginbtn">
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- <script src="{{ url_for('static', filename='js/login.js') }}"></script> -->
+</body>
+
+</html>

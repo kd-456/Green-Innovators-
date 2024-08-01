@@ -25,11 +25,11 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // const resources = [
-    //     { title: 'How to Improve Soil Quality', url: 'https://example.com/soil-quality' },
-    //     { title: 'Effective Irrigation Techniques', url: 'https://example.com/irrigation' },
-    //     { title: 'Organic Farming Basics', url: 'https://example.com/organic-farming' }
-    // ];
+    const resources = [
+        { title: 'How to Improve Soil Quality', url: 'https://example.com/soil-quality' },
+        { title: 'Effective Irrigation Techniques', url: 'https://example.com/irrigation' },
+        { title: 'Organic Farming Basics', url: 'https://example.com/organic-farming' }
+    ];
 
     const resourceList = document.querySelector('.resource-list');
 
