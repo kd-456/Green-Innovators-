@@ -117,12 +117,15 @@ footer {
     flex-wrap: wrap;
     gap: 1rem;
 }
-.dashboard-background {
+
+html,
+body {
     background: url('../assets/img/1.png') no-repeat center center;
     background-size: cover;
-    padding: 2rem 1rem;
+    /* padding: 2rem 1rem; */
     color: #fff;
 }
+
 .stat-card {
     display: flex;
     align-items: center;
@@ -130,7 +133,7 @@ footer {
     border: 1px solid #ddd;
     border-radius: 8px;
     background: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .stat-icon {
