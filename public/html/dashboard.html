@@ -392,8 +392,20 @@
                         <input type="text" id="weight-before-${index}" value="${stat.details.weightBefore}" />
                         <label for="weight-after-${index}">Weight After Heating</label>
                         <input type="text" id="weight-after-${index}" value="${stat.details.weightAfter}" />
+                        <button id="calculate-${index}">Calculate</button>
                         <button id="save-${index}">Save</button>
                     `;
+                    
+                    // Add event listener for the "Calculate" button
+                    const calculateButton = editForm.querySelector(`#calculate-${index}`);
+                    calculateButton.addEventListener('click', () => {
+                        const soilType = document.querySelector(`#soil-type-${index}`).value;
+                        const weightBefore = document.querySelector(`#weight-before-${index}`).value;
+                        const weightAfter = document.querySelector(`#weight-after-${index}`).value;
+                        
+                        // Redirect to soil.html with details as query parameters
+                        window.location.href = `soil.html?soilType=${encodeURIComponent(soilType)}&weightBefore=${encodeURIComponent(weightBefore)}&weightAfter=${encodeURIComponent(weightAfter)}`;
+                    });
                 } else {
                     editForm.innerHTML = `
                         <label for="title-${index}">Title</label>
@@ -405,25 +417,7 @@
                 }
 
                 editButton.addEventListener('click', () => {
-                    editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
-                });
-
-                editForm.querySelector(`#save-${index}`).addEventListener('click', () => {
-                    if (stat.title === 'Soil Moisture') {
-                        const newSoilType = document.querySelector(`#soil-type-${index}`).value;
-                        const newWeightBefore = document.querySelector(`#weight-before-${index}`).value;
-                        const newWeightAfter = document.querySelector(`#weight-after-${index}`).value;
-                        stat.details.type = newSoilType;
-                        stat.details.weightBefore = newWeightBefore;
-                        stat.details.weightAfter = newWeightAfter;
-                        stat.value = `Weight Before: ${newWeightBefore}, Weight After: ${newWeightAfter}`;
-                    } else {
-                        stat.title = document.querySelector(`#title-${index}`).value;
-                        stat.value = document.querySelector(`#value-${index}`).value;
-                    }
-                    statCard.querySelector('h3').textContent = stat.title;
-                    statCard.querySelector('p').textContent = stat.value;
-                    editForm.style.display = 'none';
+                    editForm.style.display = editForm.style.display === 'none' || !editForm.style.display ? 'block' : 'none';
                 });
 
                 statCard.appendChild(statIcon);
@@ -438,5 +432,6 @@
 </body>
 
 </html>
+
 
 
