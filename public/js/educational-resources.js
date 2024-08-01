@@ -26,9 +26,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const resources = [
-        { title: 'How to Improve Soil Quality', url: 'https://example.com/soil-quality' },
-        { title: 'Effective Irrigation Techniques', url: 'https://example.com/irrigation' },
-        { title: 'Organic Farming Basics', url: 'https://example.com/organic-farming' }
+        { title: 'How to Improve Soil Quality', url: 'https://plantura.garden/uk/gardening-tips/soil/how-to-improve-soil-quality' },
+        { title: 'Effective Irrigation Techniques', url: 'https://www.agrivi.com/blog/drip-irrigation-as-the-most-efficient-irrigation-system-type/' },
+        { title: 'Organic Farming Basics', url: 'https://agritech.tnau.ac.in/org_farm/orgfarm_introduction.html' }
     ];
 
     const resourceList = document.querySelector('.resource-list');
