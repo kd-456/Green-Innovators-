@@ -28,6 +28,51 @@
 // });
 
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     const stats = [
+//         { title: 'Total Area', value: '50 acres', icon: '🌾' },
+//         { title: 'Crops Planted', value: '3 types', icon: '🌱' },
+//         { title: 'Water Usage', value: '20,000 liters', icon: '💧' },
+//         { title: 'Fertilizer Used', value: '500 kg', icon: '🧪' },
+//         { title: 'Harvested Yield', value: '15 tons', icon: '🌽' }
+//         // { title: 'Soil Moisture Content', value: '15 tons', icon: '💧' }
+//     ];
+
+//     const dashboardStats = document.querySelector('.dashboard-stats');
+
+//     if (stats.length === 0) {
+//         const noStatsMessage = document.createElement('p');
+//         noStatsMessage.textContent = 'No statistics available.';
+//         dashboardStats.appendChild(noStatsMessage);
+//         return;
+//     }
+
+//     stats.forEach(stat => {
+//         const statCard = document.createElement('div');
+//         statCard.className = 'stat-card';
+
+//         const statIcon = document.createElement('span');
+//         statIcon.className = 'stat-icon';
+//         statIcon.textContent = stat.icon;
+
+//         const statContent = document.createElement('div');
+//         statContent.className = 'stat-content';
+
+//         const statTitle = document.createElement('h3');
+//         statTitle.textContent = stat.title;
+
+//         const statValue = document.createElement('p');
+//         statValue.textContent = stat.value;
+
+//         statContent.appendChild(statTitle);
+//         statContent.appendChild(statValue);
+//         statCard.appendChild(statIcon);
+//         statCard.appendChild(statContent);
+//         dashboardStats.appendChild(statCard);
+//     });
+// });
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const stats = [
         { title: 'Total Area', value: '50 acres', icon: '🌾' },
@@ -68,5 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
         statCard.appendChild(statIcon);
         statCard.appendChild(statContent);
         dashboardStats.appendChild(statCard);
+    });
+
+    // Handle soil moisture calculation
+    document.getElementById('calculate-moisture').addEventListener('click', () => {
+        const soilBeforeHeating = parseFloat(document.getElementById('soil-before-heating').value);
+        const soilAfterHeating = parseFloat(document.getElementById('soil-after-heating').value);
+        
+        if (isNaN(soilBeforeHeating) || isNaN(soilAfterHeating)) {
+            alert('Please enter valid numbers.');
+            return;
+        }
+
+        const moistureContent = ((soilBeforeHeating - soilAfterHeating) / soilBeforeHeating) * 100;
+        document.getElementById('moisture-result').textContent = `Soil Moisture Content: ${moistureContent.toFixed(2)}%`;
     });
 });

@@ -176,7 +176,6 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <style>
         .dashboard-stats {
-            
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
@@ -189,6 +188,7 @@
             padding: 2rem 1rem;
             color: #fff;
         }
+
         .stat-card {
             display: flex;
             align-items: center;
@@ -196,7 +196,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             background: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             width: calc(33% - 1rem);
             box-sizing: border-box;
             position: relative;
@@ -251,13 +251,13 @@
         .edit-form {
             display: none;
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 3rem;
+            right: 1rem;
             background: #fff;
             border: 1px solid #ddd;
             padding: 1rem;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 10;
         }
 
@@ -281,6 +281,10 @@
             padding: 0.5rem 1rem;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        .edit-form button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -326,7 +330,17 @@
                 { title: 'Crops Planted', value: '3 types', icon: '🌱' },
                 { title: 'Water Usage', value: '20,000 liters', icon: '💧' },
                 { title: 'Fertilizer Used', value: '500 kg', icon: '🧪' },
-                { title: 'Harvested Yield', value: '15 tons', icon: '🌽' }
+                { title: 'Harvested Yield', value: '15 tons', icon: '🌽' },
+                {
+                    title: 'Soil Moisture',
+                    value: '75%',
+                    icon: '🌍',
+                    details: {
+                        type: 'Clay',
+                        weightBefore: '2 kg',
+                        weightAfter: '1.8 kg'
+                    }
+                } // Added Soil Moisture stat with additional details
             ];
 
             const dashboardStats = document.querySelector('.dashboard-stats');
@@ -369,26 +383,46 @@
 
                 const editForm = document.createElement('div');
                 editForm.className = 'edit-form';
-                editForm.innerHTML = `
-                    <label for="title-${index}">Title</label>
-                    <input type="text" id="title-${index}" value="${stat.title}" />
-                    <label for="value-${index}">Value</label>
-                    <input type="text" id="value-${index}" value="${stat.value}" />
-                    <button id="save-${index}">Save</button>
-                `;
+
+                if (stat.title === 'Soil Moisture') {
+                    editForm.innerHTML = `
+                        <label for="soil-type-${index}">Soil Type</label>
+                        <input type="text" id="soil-type-${index}" value="${stat.details.type}" />
+                        <label for="weight-before-${index}">Weight Before Heating</label>
+                        <input type="text" id="weight-before-${index}" value="${stat.details.weightBefore}" />
+                        <label for="weight-after-${index}">Weight After Heating</label>
+                        <input type="text" id="weight-after-${index}" value="${stat.details.weightAfter}" />
+                        <button id="save-${index}">Save</button>
+                    `;
+                } else {
+                    editForm.innerHTML = `
+                        <label for="title-${index}">Title</label>
+                        <input type="text" id="title-${index}" value="${stat.title}" />
+                        <label for="value-${index}">Value</label>
+                        <input type="text" id="value-${index}" value="${stat.value}" />
+                        <button id="save-${index}">Save</button>
+                    `;
+                }
 
                 editButton.addEventListener('click', () => {
                     editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
                 });
 
                 editForm.querySelector(`#save-${index}`).addEventListener('click', () => {
-                    const newTitle = document.querySelector(`#title-${index}`).value;
-                    const newValue = document.querySelector(`#value-${index}`).value;
-                    stat.title = newTitle;
-                    stat.value = newValue;
-                    statTitle.textContent = newTitle;
-                    statValue.textContent = newValue;
-                    statTimestamp.textContent = `Last updated: ${new Date().toLocaleString()}`;
+                    if (stat.title === 'Soil Moisture') {
+                        const newSoilType = document.querySelector(`#soil-type-${index}`).value;
+                        const newWeightBefore = document.querySelector(`#weight-before-${index}`).value;
+                        const newWeightAfter = document.querySelector(`#weight-after-${index}`).value;
+                        stat.details.type = newSoilType;
+                        stat.details.weightBefore = newWeightBefore;
+                        stat.details.weightAfter = newWeightAfter;
+                        stat.value = `Weight Before: ${newWeightBefore}, Weight After: ${newWeightAfter}`;
+                    } else {
+                        stat.title = document.querySelector(`#title-${index}`).value;
+                        stat.value = document.querySelector(`#value-${index}`).value;
+                    }
+                    statCard.querySelector('h3').textContent = stat.title;
+                    statCard.querySelector('p').textContent = stat.value;
                     editForm.style.display = 'none';
                 });
 
@@ -396,19 +430,13 @@
                 statCard.appendChild(statContent);
                 statCard.appendChild(editButton);
                 statCard.appendChild(editForm);
-                dashboardStats.appendChild(statCard);
-            });
 
-            // Add event listener to logo for image editing
-            const logo = document.getElementById('logo');
-            logo.addEventListener('click', () => {
-                const newImageURL = prompt('Enter the new logo image URL:');
-                if (newImageURL) {
-                    logo.src = newImageURL;
-                }
+                dashboardStats.appendChild(statCard);
             });
         });
     </script>
 </body>
 
 </html>
+
+
